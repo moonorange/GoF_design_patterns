@@ -18,7 +18,7 @@ class Banner:
 class Print(metaclass=ABCMeta):
     @abstractmethod
     def print_weak(self):
-        pass
+        pass    
 
     @abstractmethod
     def print_strong(self):
