@@ -30,13 +30,13 @@ class AbstractDisplay(metaclass=ABCMeta):
         self.close()
 
 class CharDisplay(AbstractDisplay):
-    def __init__(self, ch:str) -> str:
+    def __init__(self, ch:str):
         self.__ch = ch
 
     def open(self):
         print("<<", end="")
 
-    def print(self):
+    def pprint(self):
         print(self.__ch, end="")
 
     def close(self):
