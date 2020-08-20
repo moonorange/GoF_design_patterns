@@ -1,10 +1,12 @@
 from abc import ABCMeta, abstractmethod
 
 def main():
-    # ch = CharDisplay("a")
-    # ch.display()
+    ch = CharDisplay("a")
+    ch.display()
     st = StringDisplay("hello")
     st.display()
+    st_jp = StringDisplay("こんにちは")
+    st_jp.display()
 
 class AbstractDisplay(metaclass=ABCMeta):
     @abstractmethod
@@ -12,7 +14,7 @@ class AbstractDisplay(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def print(self):
+    def pprint(self):
         pass
 
     @abstractmethod
@@ -21,8 +23,10 @@ class AbstractDisplay(metaclass=ABCMeta):
 
     def display(self):
         self.open()
-        for i in range(5):
-            self.print()
+
+        for _ in range(5):
+            self.pprint()
+
         self.close()
 
 class CharDisplay(AbstractDisplay):
@@ -46,7 +50,7 @@ class StringDisplay(AbstractDisplay):
     def open(self):
         self.__print_line()
 
-    def print(self):
+    def pprint(self):
         print("|" + self.__string + "|")
 
     def close(self):
@@ -54,8 +58,10 @@ class StringDisplay(AbstractDisplay):
 
     def __print_line(self):
         print("+", end="")
-        for i in range(self.__width):
+
+        for _ in range(self.__width):
             print("-", end="")
+
         print("+")
 
 if __name__ == '__main__':
