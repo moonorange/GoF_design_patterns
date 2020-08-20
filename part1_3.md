@@ -20,6 +20,7 @@ aggregate インターフェース
 - インスタンスによるadapterパターン(委譲を使ったもの)
 
 委譲とはあるメソッドの実際の処理を他のインスタンスに任せてしまうこと
+
 既存のクラスを使って機能を実装したい時に使える
 既存のクラスに一皮被せて必要とするクラスを作る
 バグが発生した際はadapter役のクラスを調べるだけでいいのでチェックが楽になる
@@ -31,6 +32,36 @@ aggregate インターフェース
 結果、バグが起きた際にconcreteメソッドをテストせずabstractメソッドをテストするだけで良くなる
 継承の一般的な原則
 スーパークラス型の変数にサブクラスのどのインスタンスを代入しても、正しく動作するようにするという原則をThe Liskov Substitution Princple(LSP)と呼ばれる。
+
+## 1-4 Factory Method　パターン
+インスタンスの作り方をスーパークラスで定める
+具体的なクラス名、肉付けはサブクラスで行う
+
+```
+framework class
+
+Product class
+製品は何はともあれ使える
+
+Factory class
+製品を創り登録する
+具体的な製品を知らないが創るためのmethodとproductについてのみ知っている
+```
+
+```
+concrete class
+
+IDCard class
+productのsubclass
+owner情報を持つ、使う具体的な処理を実装、owner情報を返せる
+
+IDCardFactory class
+factoryのsubclass
+create_productとregster_productの具体的な実装
+owners listを持ち、返せる
+
+この構造のおかげで具体的なproductのクラス名からFactory classは解放される
+```
 
 
 #　コラム(抽象クラス、インターフェースについて)
