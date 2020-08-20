@@ -1,4 +1,5 @@
 from abc import ABCMeta, abstractmethod
+import unicodedata
 
 def main():
     ch = CharDisplay("a")
@@ -45,7 +46,7 @@ class CharDisplay(AbstractDisplay):
 class StringDisplay(AbstractDisplay):
     def __init__(self, string:str):
         self.__string = string
-        self.__width = len(self.__string)
+        self.__width = self.get_east_asian_width_count(self.__string)
 
     def open(self):
         self.__print_line()
@@ -55,6 +56,15 @@ class StringDisplay(AbstractDisplay):
 
     def close(self):
         self.__print_line()
+
+    def get_east_asian_width_count(self, text):
+        count = 0
+        for c in text:
+            if unicodedata.east_asian_width(c) in 'FWA':
+                count += 2
+            else:
+                count += 1
+        return count
 
     def __print_line(self):
         print("+", end="")
