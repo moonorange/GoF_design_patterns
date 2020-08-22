@@ -12,4 +12,12 @@ class Page(metaclass=ABCMeta):
     def output(self):
         try:
             filename = this.title + ".htmll"
-            with open()
+            with open(filename) as f:
+                f.write(self.make_html())
+            print("{}を作成しました。".format(filename))
+        except Exception as e:
+            print(e)
+
+    @abstractmethod
+    def make_html(self):
+        pass
