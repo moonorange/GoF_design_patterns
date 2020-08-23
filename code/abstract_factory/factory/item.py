@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 
-class Item(metaclass=ABCMeta):
-    def __init__(self, caption:str):
+class Item(metaclass=abstactmethod):
+    def __init__(self, caption):
         self.caption = caption
 
     @abstractmethod

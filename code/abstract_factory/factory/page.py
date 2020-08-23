@@ -1,17 +1,18 @@
 from abc import ABCMeta, abstractmethod
+from .item import Item
 
 class Page(metaclass=ABCMeta):
-    def __init__(self, title, author):
-        this.title = title
-        this.author = author
+    def __init__(self, title: str, author: str):
+        self.title = title
+        self.author = author
+        self._content = []
 
-    def add(self, item):
-        content = []
-        content.append(item)
+    def add(self, item: Item):
+        self._content.append(item)
 
     def output(self):
         try:
-            filename = this.title + ".htmll"
+            filename = self.title + ".htmll"
             with open(filename) as f:
                 f.write(self.make_html())
             print("{}を作成しました。".format(filename))
