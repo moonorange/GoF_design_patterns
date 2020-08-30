@@ -4,6 +4,9 @@ gibo 2.2.4 by Simon Whitaker <sw@netcetera.org>
 https://github.com/simonwhitaker/gibo
 ### https://raw.github.com/github/gitignore/18aa6d83774d514da479d73a4beb864cd4220231/Python.gitignore
 
+# Mac
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -142,5 +145,3 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-
-
