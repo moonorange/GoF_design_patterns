@@ -47,6 +47,6 @@ class ListPage(abstract_factory.Page):
             buffer.append(con.make_html())
         buffer.append("</ul>\n")
         buffer.append("<hr><address>{}</address>".format(self.author))
-        buffer.append("</bod></html>\n")
+        buffer.append("</body></html>\n")
 
         return "".join(buffer)

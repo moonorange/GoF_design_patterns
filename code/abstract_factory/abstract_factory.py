@@ -63,7 +63,7 @@ class Page(metaclass=ABCMeta):
     def output(self):
         try:
             filename = self.title + ".html"
-            writer = open(filename, 'w')
+            writer = open("code/abstract_factory/output/" + filename, 'w')
             writer.write(self.make_html())
             writer.close()
             print(filename + 'を作成しました。')
