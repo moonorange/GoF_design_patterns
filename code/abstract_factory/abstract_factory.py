@@ -2,6 +2,7 @@ from abc import ABCMeta, abstractmethod
 import sys
 
 class Factory(metaclass=ABCMeta):
+    # 具体的なクラスを動的に読み込む
     @classmethod
     def get_factory(cls, classname: str):
         try:

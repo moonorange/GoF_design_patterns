@@ -1,7 +1,9 @@
 import argparse
 import abstract_factory
 
+#　抽象的なコードのみ利用している
 if __name__ == "__main__":
+    # クラス名をコマンドライン引数として渡す
     parser = argparse.ArgumentParser()
     parser.add_argument("--class_name", help="class_name", required=True)
     args = parser.parse_args()
