@@ -26,7 +26,7 @@ class Factory(metaclass=ABCMeta):
     def create_page(self, title: str, author: str):
         pass
 
-
+# linkとtrayを同一視するためのクラス
 class Item(metaclass=ABCMeta):
     def __init__(self, caption):
         self.caption = caption
@@ -35,13 +35,14 @@ class Item(metaclass=ABCMeta):
     def make_html(self):
         pass
 
-
+# htmlのハイパーリンクを抽象的に表現したクラス
 class Link(Item, metaclass=ABCMeta):
     def __init__(self, caption: str, url: str):
         super().__init__(caption)
         self.url = url
 
-
+# 複数のlinkやtrayをひとまとめにしたもの
+# addメソッドでlinkやtrayを集めるためitemクラスを引数にとる
 class Tray(Item, metaclass=ABCMeta):
     def __init__(self, caption):
         super().__init__(caption)
@@ -51,6 +52,7 @@ class Tray(Item, metaclass=ABCMeta):
         self._tray.append(item)
 
 
+# htmlページ全体を抽象的に表現したクラス
 class Page(metaclass=ABCMeta):
     def __init__(self, title: str, author: str):
         self.title = title
